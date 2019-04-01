@@ -1,0 +1,72 @@
+<div class="containerTeam">
+	<header class="clubHero clubColorBg">
+		<div class="wrapper">
+			<div class="col-12">
+				<div class="clubDetailsContainer">
+					<div class="clubDetails">
+						<h2 class="team1">League Results</h2>             
+					</div>
+				</div>
+			</div>
+		</div>	
+	</header>	<br>
+	
+	<div  class="row">
+		<div class="col-sm-12" style="padding-left:15px;padding-right:15px" ng-repeat="key in answer | filterBy: ['status']: 'FINISHED' | groupBy: 'date' | toArray:true  ">
+			<b style="padding-left: 10px;">{{key.$key.substr(0,key.$key.length-1) | date:'dd MMMM yyyy hh:mm a'}}</b><hr style="margin-top:0px">	
+			<table  class="col-sm-12 text-center table-responsive" style="border:0;" >
+				<tr ng-repeat="x in key">
+					<td style="width:33%;padding:5px">
+						
+						<span ng-repeat="i in serviceData | filterBy: ['name']: x.homeTeamName track by $index ">
+							<p ng-if="i.crestUrl==''">something</p>
+							<a title={{x.homeTeamName}}><img ng-src="{{i.crestUrl}}" alt="{{x.homeTeamName}}" width="80" height="80"></a>
+							<br><span id="teamName">{{x.homeTeamName}}</span>
+						</span>
+					</td>
+					<td style="width:33%;padding:5px">
+						<span class="score">{{x.result.goalsHomeTeam}} - {{x.result.goalsAwayTeam}}</span>
+					</td>
+					<td style="width:33%;padding:5px">
+						
+						<span ng-repeat="i in serviceData | filterBy: ['name']: x.awayTeamName track by $index ">
+							<p ng-if="i.crestUrl==''">something</p>
+							<a title={{x.awayTeamName}}><img ng-src="{{i.crestUrl}}" alt="{{x.awayTeamName}}" width="80" height="80"></a>
+							<br><span id="teamName">{{x.awayTeamName}}</span>
+						</span>
+					</td>	
+				</tr>
+			</table><hr style="margin-top:0px">	
+		</div>
+	</div>
+
+
+<!--
+	<div class="col-12">
+		<ul style="list-style: none;">
+			<li ng-repeat="key in answer | filterBy: ['status']: 'FINISHED' | groupBy: 'date' | toArray:true  ">
+				<b>{{key.$key.substr(0,key.$key.length-1) | date:'dd MMMM yyyy hh:mm a'}}</b>
+				<ul  style="list-style: none;" >
+					<li >
+						<table  class="text-center table-responsive" >
+							<tr ng-repeat="x in key  ">
+								<td>{{x.homeTeamName}}	
+								</td>
+								<td >
+									<span class="score">
+										{{x.result.goalsHomeTeam}} - {{x.result.goalsAwayTeam}}
+									</span>
+								</td>
+								<td >
+									{{x.awayTeamName}} 
+								</td>			
+							</tr>
+						</table>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+-->
+</div>
+

@@ -1,0 +1,123 @@
+<div class="containerTeam" >
+	<div class="responsive" style="padding:10px;background-image: url(./images/banner3.jpg);">
+		<table><tr><td width="35%"><a href="#team/{{id}}" data-target="#"><img ng-src="{{teamData.crestUrl}}" class="team" alt="{{teamData.name}}" style="width:40%"> </a> </td>
+			<td width="65%"><H1 style="color:white">{{teamData.name}} </H1> </td>
+			</tr></table>	
+	</div>
+	<!--
+<header class="clubHero clubColorBg" >
+<div class="wrapper">
+<div class="col-12">
+<div class="clubDetailsContainer">
+<div class="badgeContainer">
+<picture>
+<img ng-src="{{teamData.crestUrl}}" class="team" alt="{{teamData.name}}" width="80%" height="80%" >  
+</picture>
+</div>
+<div class="clubDetails">
+<h1 class="team1">{{teamData.name}}</h1>             
+</div>
+</div>
+</div>
+</div>	</header>
+-->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+
+			</div>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+
+				</button>
+				<span class="navbar-brand">Squad</span>
+			</div>
+			<div class="collapse navbar-collapse navbar-right" id="myNav">
+				<ul class="nav navbar-nav">
+					<li><a href="#team/{{id}}" data-target="#">Team Home</a></li>
+					<li><a href="#players/{{id}}" data-target="#">Squad</a></li>
+					<li><a href="#teamResult/{{id}}" data-target="#">Results</a></li>
+					<li><a href="#teamFixture/{{id}}" data-target="#">Fixtures</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown">Head 2 Head
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li ng-repeat="x in serviceData | orderBy: 'name'"><a  ng-if="x.name!=teamData.name" href="#head2head/{{x._links.self.href.split('/').pop().trim()}}" data-target="#">{{x.name}}</a></li>
+						</ul>
+					</li>
+				</ul></div>
+		</div>
+	</nav>
+	<br>
+	<!--
+<div class="table-responsive ">
+<div class="col-sm-3 playerOverviewCard" ng-repeat="x in players | orderBy: 'name' ">
+
+<div class="teamInfo">	
+<table width="100%">
+<tr>
+<td rowspan="4"><img src="./images/player.png" class="team" alt="Random Name" width="80" height="80"></td>
+</tr>
+<tr><th>{{x.jerseyNumber}}</th></tr>
+<tr><th>{{x.name}}</th></tr>
+<tr><th>{{x.position}}</th></tr>
+
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table condensed">
+<tr><td>Date of Birth</td><td>{{x.dateOfBirth | date:'dd MMMM yyyy'}}</td>
+<tr><td>Contract End</td><td>{{x.contractUntil | date:'dd MMMM yyyy'}}</td>	
+<tr><td>Nationality</td><td>{{x.nationality}}</td>
+</table>
+</div>	
+</div> 
+</div>
+-->
+
+	<!--
+<div class="page-header">
+<h1>Team Players<br>
+</h1>
+</div>
+-->
+<div class="row" style="margin-right: 0px;">
+	<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="x in players | orderBy: 'name' " on-finish-render>
+		<article class="material-card Grey">
+			<h2>
+				<span>{{x.name}}</span>
+				<strong>
+					<i class="fa fa-fw fa-star"></i>
+					{{x.position}}
+				</strong>
+			</h2>
+			<div class="mc-content">
+				<div class="img-container">
+					<img class="img-responsive" src="images/img1.jpg">
+				</div>
+				<div class="mc-description">
+					<table class="table table condensed">
+						<tr><td>Date of Birth</td><td>{{x.dateOfBirth | date:'dd MMMM yyyy'}}</td></tr>
+						<tr><td>Contract End</td><td>{{x.contractUntil | date:'dd MMMM yyyy'}}</td>	</tr>
+						<tr><td>Nationality</td><td>{{x.nationality}}</td></tr>
+						<!--							<tr><td>Market Value</td><td>{{x.marketValue}}</td></tr>-->
+					</table>
+				</div>
+			</div>
+			<a class="mc-btn-action">
+				{{x.jerseyNumber}}
+			</a>
+			<div class="mc-footer">
+			</div>
+		</article>
+	</div></div>
+
+
+
+
+
+</div>
